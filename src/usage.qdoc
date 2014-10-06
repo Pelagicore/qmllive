@@ -1,0 +1,126 @@
+/*!
+\page usage.html
+
+The QmlLive system was designed from the ground up to support your needs. It is structured in a modular fashion to be able to support various usage requirements.
+
+In the early phase of a project you normally want to use the \bold{QmlLiveBench}, which has everything included in a typical desktop application. Later in the project you may want to test your UI code on a device. For this we have designed the \bold{QmlLiveRuntime} in combination with the \bold{QmlLiveRemote}. This combi pack offers you a default qml renderer to be run on the device and a small remote application on the desktop to control it. For the C++ developers we also offer the ability to just integrate the QmlLive system into your own custom runtime using our LiveNodeEngine class with a few lines of code and then use the \bold{QmlLiveRemote} to instrument it.
+
+\section1 Workbench
+
+The standard workbench is the all inclusve qml live tool. It allows you to select a workspace to watch over and provides a default qml runtime for the active selected qml document.
+
+\image workbench.png Workbench
+
+You launch it by just executing the \tt{qmllivebench} executable
+\code
+{$(QMLIVEPROJECT)/bin/qmllivebench[.exe]
+\endcode
+
+
+\section2 Creator Integration
+
+You can integrate the QmlLiveBench into creator as an external tool. For this you need to open the Settings/Options dialog from QtCreator and open the \bold{Environment} group. There you will find the \tt{External Tools} tab.
+
+Under exectuble enter the path of your QmlLiveBench executable.
+
+\image creator_tool.png Creator
+
+Now QmlLiveBench is availabe under the menu entry Tool->External->QmlLiveBench. To be able to easier launch QmlLiveBench you can also assign a shortcut to the tool.
+
+\image creator_shortcut.png Creator
+
+Now when you press "Alt-F8" QmlLiveBench will be launched with the current project root folder open as workspace.
+
+\image creator_result.png Creator
+
+
+
+\section2 Default Runtime
+
+The default runtime is meant to be used with the QmlLiveRemote tool. It provides a default qml viewer and listens on a given port for ipc calls from the remote. As such it's ideal to start developing on a target device, when no extra c++ code is required.
+
+\image runtime.png Runtime
+
+Calling the runtime
+
+\code
+$(QMLIVEPROJECT)/bin/qmlliveruntime[.exe]
+\endcode
+
+Usage of the runtime
+
+\code
+    Usage qmlliveruntime [options] <workspace>
+     
+     options:
+      -ipcport <port>
+      -no-writes
+\endcode
+
+
+\section1 Remote
+
+The remote controls a runtime running on the same PC or on another device. On changes on the workspace is send the changes over to the runtime and reloads the current active document.
+
+\image remote.png Remote
+
+QmlLiveRemote Execution
+
+\code
+    $(QMLIVEPROJECT)/bin/qmlliveremote[.exe]
+\endcode
+
+Note: Is it possible to disable the publishing of source changes
+
+
+QmlLiveRemote Usage
+
+\code
+    Usage qmlliveremote [options] <workspace>
+     
+     options:
+      -activate <qml-document> ....... active document
+      -runtime <ip-address:port> ..... define remote runtime
+      -publishFirst .................. publish initially the workspace
+      -publishChanges ................ allow publishing workspace changes to remote
+\endcode
+
+
+\section2 Custom Runtime
+
+You can create your own custom runtime with the QmlLive features. This allows you to use your qml view setup with your additional c++ code together with the QmlLive system.
+
+For this you need to add \tt{$(QMLLIVEPROJECT)/src/src.pri} to your project folder and use the \bold{LiveNodeEngine} class to be able to receive workspace changes and active document updates. By default the IPC will listen on the port 10234.
+
+Here is a short example of a minimal custom runtime:
+
+\code{.cpp}
+#include <QtGui>
+#include <QtDeclarative>
+
+// use live node header
+#include "livenodeengine.h"
+
+int main(int argc, char** argv)
+{
+    QApplication app(argc, argv);    
+    QDeclarativeView view;
+    
+    LiveNodeEngine node;
+    // let qml live instrument your view
+    node.setView(&view);
+    // where file updates should be stored relative to
+    node.setWorkspace(".");
+    // for local usage use the LocalPublisher
+    RemoteReceiver receiver;
+    receiver.registerNode(node);
+    // listen to ipc call from remote
+    receiver.listen(10234);
+
+    view.setResizeMode(QDeclarativeView::SizeViewToRootObject);
+    view.show();
+    return app.exec();
+}
+\endcode
+
+*/

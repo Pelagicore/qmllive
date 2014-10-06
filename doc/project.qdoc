@@ -1,0 +1,20 @@
+/*!
+
+\page qml-live.html
+\keyword QML Live
+\title QML Live
+
+During a typical user interface design phase, designers create many graphics documents
+envisioning the desired user interface. Transferring such graphical visions into
+programmer’s code is difficult. Not only is it a tedious process, it often comes with great
+compromises on both sides.
+
+Many time-consuming iterations are needed to finally reach a compromise that satisfies
+the designer’s vision and is also technically feasible. However, each iteration also brings a
+small change towards the goal. Qt, with the Qt Quick technology, already shortens the
+gap between vision and product by introducing a more design oriented language (QML).
+But there still is room for improvement...
+
+See also \l {usage.html} {Usage} for how to work with the QMLLiveBench
+
+*/

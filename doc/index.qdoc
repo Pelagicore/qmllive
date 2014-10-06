@@ -1,0 +1,30 @@
+/*!
+\page index.html
+\keyword Pelagicore QML Live Reference Documentation
+
+\div {class="indexbox tools"}
+    \div {class="indexboxcont indexboxbar"}
+        \div {class="sectionlist normallist"}
+        \enddiv
+    \enddiv
+\enddiv
+\div {class="indexbox tools"}
+    \div {class="heading"}
+        Reference
+    \enddiv
+    \div {class="indexboxcont indexboxbar"}
+        \div {class="sectionlist normallist"}
+            \list
+            \o \l{All Classes}{All Classes}
+            \o \l{All Functions}{All Functions}
+            \endlist
+        \enddiv
+        \div {class="sectionlist normallist"}
+            \list
+            \o \l{QML Elements}
+            \o \l{QmlLive Examples}
+            \endlist
+        \enddiv
+    \enddiv
+\enddiv
+*/

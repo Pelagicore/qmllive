@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>logo.png</file>
+        <file>error.qml</file>
+        <file>error2.qml</file>
+        <file>livert/ImageViewer.qml</file>
+    </qresource>
+</RCC>
