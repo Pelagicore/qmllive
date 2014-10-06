@@ -50,3 +50,10 @@ workspace to the target. Click on the qml file you want to run, it should start
 on the target. Edit using your favorite tools on the host and instantly get the
 changes on the target when saving.
 
+Contributions
+-------------
+
+* Dominik Holland - Thank you for shouldering most of the work and to ensure the IPC code is rock-solid. 
+* Robert Griebl - Thank you for knowing so many details on Qt and helping with the internals.
+* Juergen Bocklage-Ryannel - For providing the initial idea and believing into the product.
+
