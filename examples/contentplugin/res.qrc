@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/mycontentadatperplugin">
+        <file>plugin.qml</file>
+    </qresource>
+</RCC>

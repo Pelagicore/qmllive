@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>qmlsplash/pelagicore-symbol-white-rgb.png</file>
+        <file>qmlsplash/splash-qt5.qml</file>
+    </qresource>
+</RCC>
