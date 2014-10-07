@@ -1,7 +1,7 @@
 QmlLive
 =======
 
-A live coding environment for QML. Allows to reload you qml view, when a file in your project changes. This can be done on e the same device using the QmlLiveBench or on a remote device using the QmlLiveRuntime.
+A live coding environment for QML. Allows to reload your qml view when a file in your project changes. This can be done on the same device using the QmlLiveBench or on a remote device using the QmlLiveRuntime.
 
 Sub Projects
 ============
