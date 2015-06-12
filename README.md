@@ -57,3 +57,4 @@ Contributions
 * Robert Griebl - Thank you for knowing so many details on Qt and helping with the internals.
 * Juergen Bocklage-Ryannel - For providing the initial idea and believing into the product.
 
+Copyright (C) 2015 Pelagicore 
