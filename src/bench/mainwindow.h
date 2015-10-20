@@ -47,6 +47,7 @@ public:
     void setWorkspace(const QString& path);
     void setPluginPath(const QString& path);
     void setImportPaths(const QStringList& pathList);
+    void addDefaultImportPaths(const QStringList& pathList);
     void setStaysOnTop(bool enabled);
     void readSettings();
 protected:
