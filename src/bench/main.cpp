@@ -123,6 +123,7 @@ int main(int argc, char** argv)
     }
     if(!options.importPaths.isEmpty()) {
         //qDebug() << "set importPaths: " << options.importPaths;
+        win.addDefaultImportPaths(options.importPaths);
         win.setImportPaths(options.importPaths);
     }
     if(!options.activeDocument.isEmpty()) {

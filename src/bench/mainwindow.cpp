@@ -339,6 +339,11 @@ void MainWindow::setImportPaths(const QStringList &pathList)
     m_node->setImportPaths(pathList + m_qmlDefaultimportList);
 }
 
+void MainWindow::addDefaultImportPaths(const QStringList &pathList)
+{
+	m_qmlDefaultimportList.append(pathList);
+}
+
 void MainWindow::setStaysOnTop(bool enabled)
 {
     m_stayOnTop->setChecked(enabled);
