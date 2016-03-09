@@ -225,6 +225,8 @@ void MainWindow::readSettings()
 
     updateRecentFolder();
 
+    resetImportPaths();
+
     //Only set the workspace if we didn't already set it by command line
     if (m_workspace->activeDocument().isEmpty()) {
         if (s.contains("activeDocument"))
@@ -232,8 +234,6 @@ void MainWindow::readSettings()
         else
             m_workspace->activateRootPath();
     }
-
-    resetImportPaths();
 
     m_hostModel->restoreFromSettings(&s);
     restoreState(s.value("windowState").toByteArray());
